@@ -3,12 +3,25 @@ const quoteText     = document.getElementById('quote');
 const authorText   = document.getElementById('author');
 const newQuoteBtn   = document.getElementById('new-quote');
 const twitterBtn = document.getElementById('twitter');
+const loader = document.getElementById('loader');
 
 let apiQuotes = [];
 
+
+// Show Loading
+function loading(){
+    loader.hidden = false;
+    quoteContainer.hidden = true;
+}
+// Hide Loading
+function complete(){
+    quoteContainer.hidden = false;
+    loader.hidden = true;
+}
 // Show New Quote
 function newQuote() {
-    
+
+    loading();
     // Pick a random quote from apiQoutes array usinf Math function
     const quote = apiQuotes[Math.floor(Math.random() * apiQuotes.length )];
     
@@ -25,8 +38,11 @@ function newQuote() {
     }else{
         quoteText.classList.remove('long-quote');
     }
-    quoteText.textContent  = quote.text;
 
+    //Set Qoute, Hide Loader
+
+    quoteText.textContent  = quote.text;
+    complete();
 
     // console.log(quote);
 }
@@ -34,14 +50,19 @@ function newQuote() {
 
 
 // Get Qoutes From API
-async function getQuotes(){
+async function getQuote(){
 
-    const apiUrl = 'https://type.fit/api/quotes';
+    loading();
+    const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+    // another API link
+    const apiUrl = 'http://api.forismatic.com/api/1.0/?method=getQuote&lang=eng&format=json'; 
+    // const apiUrl = 'https://type.fit/api/quotes';
 
     try {
-        const response = await fetch(apiUrl);
+        const response = await fetch(proxyUrl + apiUrl  );
+        // const response = await fetch(apiUrl);
         apiQuotes = await response.json();
-        // console.log(apiQuotes[12]);
+        // console.log(apiQuotes);
 
         newQuote();
 
@@ -68,7 +89,7 @@ twitterBtn.addEventListener('click' , tweetQuote);
 
 
 // On Load
-getQuotes();
+getQuote();
 
 // If I need to use localQoutes 
     // newQuote();
