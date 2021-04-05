@@ -33,6 +33,15 @@ body {
 
   /* background-color: ; */
 }
+
+.head-title {
+
+  margin: 50px;
+  text-align: center;
+  justify-content: center;
+  font-weight: bold !important;
+  font-size: 2.2rem;
+}
 .quote-container {
     width: auto;
     max-width: 800px;
@@ -56,19 +65,29 @@ body {
 #quote{
     color: #1f1542 ;
     float: left;
-    margin-right: 1rem;
+    margin-right: 1.2rem;
+    padding:20px;
+
 }
 
-.fa-quot-right {
+#quote-right{
+  float: right;
+  color: #1f1542 ;
+  font-size: 2.5rem;
+  margin-bottom:  -40px;
+
+}
+/* .fa-quot-right {
     font-size: 4rem;
     float: right;
-
-}
+    display: flex;
+    margin-bottom:  50px;
+} */
 
 .quote-author {
-    margin-top: 15px;
     font-size: 2rem;
     font-weight: 400;
+    color: #1f1542 ;
     font-style: italic;
 }
 
