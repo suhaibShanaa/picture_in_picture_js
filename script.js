@@ -63,7 +63,7 @@ function newQuote() {
 
 // Tweet Qoute
 function tweetQuote(){
-    const twitterUrl = `https://twitter.com/intent/tweet?text=${quoteText.textContent} - ${authorText.textContent} - Classera Larning System`;
+    const twitterUrl = `https://twitter.com/intent/tweet?text=${quoteText.textContent} - ${authorText.textContent} -.`;
     window.open(twitterUrl, '_blank');
 
 }
