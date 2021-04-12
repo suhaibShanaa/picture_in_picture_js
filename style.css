@@ -463,6 +463,9 @@ button:active {
       margin-top: 100px;
       left :20px;
   }
+  .quote-text {
+    font-size: 2rem;
+}
   
   #work{
       display: inline-block;
@@ -490,6 +493,10 @@ button:active {
       position: absolute;
       right : 120px;
   }
+  .quote-text {
+    font-size: 2rem;
+}
+  
 }
 
 /* Large Screens */
